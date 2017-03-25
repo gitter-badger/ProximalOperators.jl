@@ -5,7 +5,7 @@ immutable SlicedSeparableSum{S <: AbstractArray, T <: AbstractArray} <: Proximab
 	is::T
 	dim::Integer
 
-function SlicedSeparableSum(a::S, b::T, dim::Integer)
+	function SlicedSeparableSum{S,T}(a::S, b::T, dim::Integer) where {S <: AbstractArray, T <: AbstractArray}
 		if size(a) != size(b)
 			error("size(fs) must coincide with size(is)")
 		else

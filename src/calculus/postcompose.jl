@@ -10,7 +10,7 @@ immutable Postcompose{T <: ProximableFunction, S <: Real} <: ProximableFunction
   f::T
   a::S
   b::S
-  function Postcompose(f::T, a::S, b::S)
+  function Postcompose{T,S}(f::T, a::S, b::S) where {T <: ProximableFunction, S <: Real}
     if a <= 0.0
       error("parameter a must be positive")
     else

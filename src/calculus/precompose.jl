@@ -10,7 +10,7 @@ immutable Precompose{T <: ProximableFunction, R <: Union{Real, AbstractArray}, S
   f::T
   a::R
   b::S
-  function Precompose(f::T, a::R, b::S)
+  function Precompose{T,R,S}(f::T, a::R, b::S) where {T <: ProximableFunction, R <: Union{Real, AbstractArray}, S <: Union{Real, AbstractArray}}
     if !(eltype(a) <: Real && eltype(b) <: Real)
       error("a and b must be real")
     end
